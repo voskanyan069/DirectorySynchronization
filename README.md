@@ -1,3 +1,8 @@
+Install requireq packages
+```
+./install.sh
+```
+
 To start capturing
 ```
 ./capture.sh <TIMEOUT> <COUNT>
