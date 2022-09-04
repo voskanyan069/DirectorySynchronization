@@ -12,11 +12,11 @@ USERHOST=$2
 PASSWORD=$3
 
 sync() {
-    sshpass -p $PASSWORD rsync --bwlimit=1466 --update -alvzr --exclude "*.sh" --exclude ".git" $PICSPATH $USERHOST
+    sshpass -p $PASSWORD rsync --bwlimit=1466 --update -alvzr --exclude "*.sh" --exclude ".git" --exclude "README" $PICSPATH $USERHOST
 }
 
 watch() {
-    inotifywait -e "$EVENTS" -m -r --format '%:e %f' $PICSPATH --exclude "*.sh" --exclude ".git"
+    inotifywait -e "$EVENTS" -m -r --format '%:e %f' $PICSPATH --exclude "*.sh" --exclude ".git" --exclude "README"
 }
 
 watch | (
