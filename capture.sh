@@ -1,18 +1,14 @@
 #!/bin/bash
 
-TIMEOUT=1
-COUNT=100
-
-if [[ $1 != "" ]]
+if [[ $# != 2 ]]
 then
-    TIMEOUT=$1
+    echo "Usage: $0 <TIMEOUT> <COUNT>"
+    exit -1
 fi
+
+TIMEOUT=$1
+COUNT=$2
 echo "Timeout set to $TIMEOUT sec"
-
-if [[ $2 != "" ]]
-then
-    COUNT=$2
-fi
 echo "Count of captures set to $COUNT"
 
 capture() {
